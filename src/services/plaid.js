@@ -7,11 +7,12 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var moment = require('moment');
 var plaid = require('plaid');
+var keys = require('../keys/plaid-keys');
 
 var APP_PORT = '8000';
-var PLAID_CLIENT_ID = '5dab00bb1a28650013d270aa';
-var PLAID_SECRET = '24f4c156637293aa5fe509448ef19d';
-var PLAID_PUBLIC_KEY = 'e6c81eb976a8bd8d1ee0b3846eafb9';
+var PLAID_CLIENT_ID = keys.clientId;
+var PLAID_SECRET = keys.secret;
+var PLAID_PUBLIC_KEY = keys.publicKey;
 var PLAID_ENV = 'development';
 
 // PLAID_PRODUCTS is a comma-separated list of products to use when initializing

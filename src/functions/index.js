@@ -86,32 +86,6 @@ app.get('/plaid/save_transactions', async (req, res) => {
   res.send(200);
 });
 
-// Will need to do this somewhere to save the access token after an account is added in the UI
-// plaidClient.exchangePublicToken(
-//   'public-development-13bb03fd-7735-4a93-a124-e60d9611ac5b', // From link in UI
-//   (err, res) => {
-//     console.log(res);
-//   }
-// );
-
-// Get collection reference
-// const transactionsRef = firestore.collection('transactions');
-// let transactionSnapshot;
-// try {
-//   // Get collection snapshot
-//   transactionSnapshot = await transactionsRef.get();
-// } catch (err) {
-//   //next(err); <--- Different error handling
-//   res.status(500).json({ error: err.toString() });
-// }
-// // Get transaction objects and format date
-// const transactions = transactionSnapshot.docs.map(doc => {
-//   return doc.data();
-// });
-// transactions.forEach(
-//   transaction => (transaction.date = transaction.date.toDate())
-// );
-
 // Get Transactions
 app.get('/client/transactions', async (req, res) => {
   // Get collection reference
@@ -140,31 +114,6 @@ app.get('/account', async (req, res) => {
   // Get account info (balance)
   const accountResponse = await plaidClient.getAccounts(keys.chaseAccessToken);
   res.send(accountResponse.accounts);
-  // Create public token for an account
-  // let publicToken;
-  // plaidClient.createPublicToken(keys.chaseAccessToken, (err, res) => {
-  //   if (err) {
-  //     res.status(500).json({ error: err.toString() });
-  //   }
-  //   publicToken = res.public_token;
-  // });
-  // console.log(publicToken);
-
-  // Get transactions for an account
-  // const transactions = await plaidClient.getTransactions(
-  //   keys.chaseAccessToken,
-  //   '2019-12-01',
-  //   '2019-12-10'
-  // );
-  // console.log(transactions);
-
-  // Will need to do this somewhere to save the access token after an account is added in the UI
-  // plaidClient.exchangePublicToken(
-  //   'public-development-13bb03fd-7735-4a93-a124-e60d9611ac5b', // From link in UI
-  //   (err, res) => {
-  //     console.log(res);
-  //   }
-  // );
 });
 
 //
