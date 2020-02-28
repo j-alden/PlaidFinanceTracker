@@ -43,7 +43,7 @@ const LinkAccount = () => {
         publicKey={keys.publicKey}
         onExit={handleOnExit}
         onSuccess={handleOnSuccess}
-        // token={'public-development-68f4c035-3d93-4e3a-ae31-27247d9bc373'}
+        // token={''} Update mode
       >
         Open Link and connect your bank!
       </PlaidLink>

@@ -7,9 +7,8 @@
 
 # testing
 /coverage
-**/functions/finance-tracker-162215c0e60a.json
-**/keys
-**/test-data
+/src/keys
+/src/test-data
 # production
 /build
 
