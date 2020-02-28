@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/keys
+/test-data
 /.pnp
 .pnp.js
 

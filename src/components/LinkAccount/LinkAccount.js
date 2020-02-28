@@ -13,7 +13,6 @@ const keys = {
   secret: '24f4c156637293aa5fe509448ef19d',
   publicToken: 'public-development-42ad1485-682d-4914-b1bd-4e181ae690d1' // Chase
 };
-
 // Initialize the Plaid client
 // Find your API keys in the Dashboard (https://dashboard.plaid.com/account/keys)
 var client = new plaid.Client(
@@ -49,6 +48,7 @@ const LinkAccount = () => {
         publicKey={keys.publicKey}
         onExit={handleOnExit}
         onSuccess={handleOnSuccess}
+        // token={'public-development-68f4c035-3d93-4e3a-ae31-27247d9bc373'}
       >
         Open Link and connect your bank!
       </PlaidLink>

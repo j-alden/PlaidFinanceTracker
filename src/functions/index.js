@@ -3,20 +3,13 @@ const express = require('express');
 const cors = require('cors');
 const { Firestore } = require('@google-cloud/firestore');
 const plaid = require('plaid');
+const keys = require('../keys/plaid-keys');
 
 // Initialize Express
 const app = express();
 // Allow CORS. Might need to change for prod
 app.use(cors());
 const firestore = new Firestore();
-
-// Plaid testing
-const keys = {
-  clientId: '5dab00bb1a28650013d270aa',
-  publicKey: 'e6c81eb976a8bd8d1ee0b3846eafb9',
-  secret: '24f4c156637293aa5fe509448ef19d',
-  chaseAccessToken: 'access-development-d6bacaa3-c246-47fb-9bbe-09b3f944f795'
-};
 
 // Plaid client
 var plaidClient = new plaid.Client(
@@ -234,6 +227,15 @@ exports.getTransactionsPubSub = functions.pubsub
       }
     }
   });
+
+exports.testPubSub = (data, context) => {
+  const pubSubMessage = data;
+  const name = pubSubMessage.data
+    ? Buffer.from(pubSubMessage.data, 'base64').toString()
+    : 'World';
+
+  console.log(`Hello, ${name}!`);
+};
 
 // Create api to export as cloud function
 const api = functions.https.onRequest(app);
