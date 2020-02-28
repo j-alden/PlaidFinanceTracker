@@ -2,14 +2,14 @@
 
 # dependencies
 /node_modules
-/keys
 /test-data
 /.pnp
 .pnp.js
 
 # testing
 /coverage
-
+src/functions/finance-tracker-162215c0e60a.json
+src/keys
 # production
 /build
 
